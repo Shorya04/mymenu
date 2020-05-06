@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Items {
@@ -17,12 +18,14 @@ public class Items {
 	private String itemName;
 	private String desc;
 	private float rating;
-	private double price;	
+	@OneToOne(targetEntity = Price.class, cascade = CascadeType.ALL)
+	@JoinColumn(name= "p_fk", referencedColumnName = "pId")
+	private Price price;
 	public Items() {
 		super();
 	}
 	
-	public Items(Integer itemId, String itemName, String desc, float rating, double price) {
+	public Items(Integer itemId, String itemName, String desc, float rating, Price price) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
@@ -63,11 +66,11 @@ public class Items {
 		this.rating = rating;
 	}
 
-	public double getPrice() {
+	public Price getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Price price) {
 		this.price = price;
 	}
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.menu.dao.MenuDao;
+import com.menu.dao.PriceDao;
 import com.menu.dao.ItemsDao;
 import com.menu.model.Menu;
 
@@ -16,12 +17,14 @@ public class MenuServiceImpl implements MenuService {
 	
 	private MenuDao menuDao;
 	private ItemsDao menuItemsDao;
+	private PriceDao priceDao;
 	
 	@Autowired
-	public MenuServiceImpl(MenuDao menuDao, ItemsDao menuItemsDao) {
+	public MenuServiceImpl(MenuDao menuDao, ItemsDao menuItemsDao, PriceDao priceDao) {
 		super();
 		this.menuDao = menuDao;
 		this.menuItemsDao=menuItemsDao;
+		this.priceDao=priceDao;
 		
 	}
 

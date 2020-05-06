@@ -1,6 +1,6 @@
 spring:
   application:
-    name: menu-service
+    name: menu-server
   h2:
     console:
       enabled: true
