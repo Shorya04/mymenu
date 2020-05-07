@@ -11,5 +11,11 @@ spring:
     hibernate:
       ddl-auto: update
     generate-ddl: true
+    
+eureka:
+  client:
+    service-url:
+     defaultzone: http://localhost:8282/eureka
+           
 server:
   port: 8181
