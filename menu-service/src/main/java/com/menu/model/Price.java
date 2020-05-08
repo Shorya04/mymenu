@@ -11,6 +11,7 @@ public class Price  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer pId;
+	private double basePrice;
 	private double cgst;
 	private double sgst;
 	private double totalPrice;
@@ -18,12 +19,21 @@ public class Price  {
 	public Price() {
 		super();
 	}
-	public Price(Integer pId, double cgst, double sgst, double totalPrice) {
+	public Price(Integer pId,double basedPrice,  double cgst, double sgst, double totalPrice) {
 		super();
 		this.pId = pId;
+		this.basePrice = basePrice;
 		this.cgst = cgst;
 		this.sgst = sgst;
 		this.totalPrice = totalPrice;
+	}
+	
+	
+	public double getBasePrice() {
+		return basePrice;
+	}
+	public void setBasePrice(double basePrice) {
+		this.basePrice = basePrice;
 	}
 	public Integer getpId() {
 		return pId;

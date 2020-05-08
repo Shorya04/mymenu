@@ -1,12 +1,13 @@
 package com.menu.security;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import com.netflix.ribbon.proxy.annotation.Http.HttpMethod;
+
 
 @Configuration
 @EnableWebSecurity
@@ -30,11 +31,11 @@ public class SpringConfig extends WebSecurityConfigurerAdapter{
         .httpBasic()
         .and()
         .authorizeRequests()
-       // .antMatchers(HttpMethod.GET, "/menu/**").hasRole("USER")
-       // .antMatchers(HttpMethod.GET,"/memu").hasRole("USER")
-     //   .antMatchers(HttpMethod.POST, "/menu").hasRole("ADMIN")
-        //.antMatchers(HttpMethod.PUT, "/menu/**").hasRole("ADMIN")
-     //   .antMatchers(HttpMethod.DELETE, "/menu/**").hasRole("ADMIN")
+        .antMatchers(HttpMethod.GET, "/menu/**").hasRole("USER")
+       .antMatchers(HttpMethod.GET,"/memu").hasRole("USER")
+       .antMatchers(HttpMethod.POST, "/menu").hasRole("ADMIN")
+       .antMatchers(HttpMethod.PUT, "/menu/**").hasRole("ADMIN")
+       .antMatchers(HttpMethod.DELETE, "/menu/**").hasRole("ADMIN")
         .and()
         .csrf().disable()
         .formLogin().disable();
