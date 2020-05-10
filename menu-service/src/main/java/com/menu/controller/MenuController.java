@@ -22,7 +22,7 @@ import com.menu.model.Menu;
 import com.menu.service.MenuService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/myrestaurant")
 public class MenuController {
 	
 	private MenuService menuService;
@@ -59,7 +59,7 @@ public class MenuController {
 	}
 
 	@GetMapping("/menu/{id}")
-	public Optional<Menu> findById(@PathVariable Integer id) throws Exception {
+	public Optional<Menu> findById(@PathVariable String id) throws Exception {
 		// TODO Auto-generated method stub
 		Optional<Menu> menu1=menuService.findById(id);
 		if(!menu1.isPresent())
@@ -80,7 +80,7 @@ public class MenuController {
 	}
 	
 	@DeleteMapping("/menu/{id}")
-	public void deleteById(@PathVariable Integer id) {
+	public void deleteById(@PathVariable String id) {
 		if(menuService.findById(id)!=null) {
 		menuService.deleteById(id);
 		}
@@ -90,7 +90,7 @@ public class MenuController {
 	}
 	
 	@PutMapping("/menu/{id}")
-	public Menu updateMenuById(@RequestBody Menu menu, @PathVariable Integer id) {
+	public Menu updateMenuById(@RequestBody Menu menu, @PathVariable String id) {
 	if(menuService.findById(id)!=null) {
        menuService.createMenu(menu);
 	}

@@ -35,7 +35,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public Optional<Menu> findById(Integer id) {
+	public Optional<Menu> findById(String id) {
 		// TODO Auto-generated method stub
 		return menuDao.findById(id);
 	}
@@ -48,7 +48,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	@Override
-	public void deleteById(Integer id) {
+	public void deleteById(String id) {
 		// TODO Auto-generated method stub
 		menuDao.deleteById(id);
 		

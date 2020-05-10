@@ -39,6 +39,7 @@ public class SpringConfig extends WebSecurityConfigurerAdapter{
         .and()
         .csrf().disable()
         .formLogin().disable();
+		http.headers().frameOptions().disable();
 
 }
 }

@@ -2,6 +2,8 @@ package com.menu.model;
 
 
 import java.util.List;
+import java.util.UUID;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,35 +19,30 @@ import javax.persistence.Table;
 public class Menu {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private final String id="3AB";
 	
 	@OneToMany(targetEntity = Items.class, cascade= CascadeType.ALL)
 	@JoinColumn(name="mi_fk", referencedColumnName = "id")
 	private List<Items> items;
 
-	public Menu(Integer id, List<Items> items) {
-		super();
-		this.id = id;
-		this.items = items;
-	}
+	
 
 	public Menu() {
 		super();
 	}
+
+
+	public Menu(List<Items> items) {
+		super();
+		this.items = items;
+	}
+
 
 	@Override
 	public String toString() {
 		return "Menu [id=" + id + ", items=" + items + "]";
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public List<Items> getItems() {
 		return items;
