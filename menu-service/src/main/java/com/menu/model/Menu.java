@@ -52,7 +52,6 @@ public class Menu {
 		this.items = items;
 	}
 	
-	
 }
 	
 
